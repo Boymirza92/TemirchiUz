@@ -6,20 +6,20 @@ import { useState } from 'react';
 import React from 'react';
 
 // === Asosiy Navigatsiya Styled Componentlari === //
+
 const Nav = styled.nav`
-  background-color: #251d1d;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  position: sticky;
   top: 0;
   z-index: 1000;
   min-height: 64px;
+  background-color: #4f4e4eff;
 `;
 
-const LogoContainer = styled.a`
+const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -173,10 +173,13 @@ const SubMenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
+    backdrop-filter: blur(10px);
+
     span {
       color: #c3c5c6ff;
       font-size: 1.02rem;
       transition: all 0.1s ease-in-out;
+
     }
   }
 
@@ -197,7 +200,8 @@ const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background: #1f1f1f;
+  backdrop-filter: blur(10px);
+  /* background: #1f1f1f; */
   padding: 0 1rem;
   min-width: 220px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -260,7 +264,7 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Link href="/" passHref legacyBehavior>
+      <Link href="/" passHref>
         <LogoContainer>
           <Logotip>
             <Left />
