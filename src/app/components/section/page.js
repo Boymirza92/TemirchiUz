@@ -12,27 +12,14 @@ const SectionWrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center calc(50% + 30px);
-  color: #fff;
-  padding: 40px;
+  position: relative;
+  padding: 3rem;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  /* flex-wrap: wrap; */
-`;
-
-const BackgroundVideo = styled.video`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  opacity: ${(props) => (props.visible ? 1 : 0)};
-  transition: opacity 0.8s ease-in-out;
-  pointer-events: none;
 `;
 
 const LogotipContainer = styled.a`
@@ -42,7 +29,7 @@ const LogotipContainer = styled.a`
   flex-wrap: wrap;
   width: 12rem;
   height: 12rem;
-  gap: 0.8rem;
+  margin-right: 2rem;
 
   @media (max-width: 768px) {
     width: 7rem;
@@ -140,51 +127,13 @@ const SectionText = styled.div`
   }
 `;
 
-const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45));
-  pointer-events: none;
-`;
-
 // === HERO SECTION ===
+
 const Section = () => {
-  const [showVideo, setShowVideo] = useState(false);
-  const videoRef = useRef(null);
 
-   useEffect(() => {
-    // 5 soniyadan keyin videoni ko‘rsatish
-    const timer = setTimeout(() => {
-      setShowVideo(true);
-    }, 5000);
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (showVideo && videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.playsInline = true;
-      const p = videoRef.current.play();
-      if (p && p.catch) p.catch(() => {});
-    }
-  }, [showVideo]);
   return (
     <SectionWrapper>
-      <BackgroundVideo
-        ref={videoRef}
-        visible={showVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="logotip/fonUchun1.jpg"
-      >
-        <source src="temirMaxsulot/video/fonVideo.mp4" />
-        sizning brouzeringiz video farmatini qo'llab-quvatlamaydi.
-      </BackgroundVideo>
-      <Overlay />
       <LogotipContainer>
         <Logotip>
           <Left />

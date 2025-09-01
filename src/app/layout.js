@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from './components/navbar/page';
+import StyledComponentsRegistry from '@/lib/registry';
 import {
   Poppins,
   Roboto,
@@ -71,8 +72,10 @@ export default function RootLayout({ children }) {
     ${montserrat.variable}
     ${geist.variable}
   `}>
+      <StyledComponentsRegistry>
         <Navbar />
         {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

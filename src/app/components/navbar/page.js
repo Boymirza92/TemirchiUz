@@ -16,7 +16,7 @@ const Nav = styled.nav`
   top: 0;
   z-index: 1000;
   min-height: 64px;
-  background-color: #4f4e4eff;
+  background-color: #1e1d1dff;
 `;
 
 const LogoContainer = styled.div`
@@ -28,13 +28,13 @@ const LogoContainer = styled.div`
   color: #fff;
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     margin: 0;
     font-weight: 700;
     text-align: center;
     span {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       color: #dfddd7ff;
       font-weight: 400;
       display: block;
