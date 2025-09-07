@@ -53,13 +53,18 @@ const NavLinks = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  padding-top: 0.3rem;
+  line-height: 1;
+
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     color: #f5f5f5;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s;
-    text-align: start;
 
     &:hover {
       color: #fbbf24;
@@ -68,16 +73,22 @@ const NavLinks = styled.nav`
 `;
 
 const Contact = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  /* text-align: start; */
+
 
   strong {
-    color: #fbbf24;
+    color: #a89a77ff;
   }
 `;
 
 const Socials = styled.div`
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   display: flex;
   justify-content: center;
   gap: 1rem;
