@@ -2,14 +2,19 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import 'swiper/css/navigation';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import { EffectCoverflow, Navigation } from 'swiper/modules';
 
 const cardData = [
   {
     href: '/maxsulotlar/panjaralar/panjara',
     imgSrc: '/temirMaxsulot/panjara/panjara5.jpg',
     alt: 'Panjara',
-    text: "Romlaringiz uchun yuqori sifatli va mustahkam panjaralar",
+    text: 'Romlaringiz uchun yuqori sifatli va mustahkam panjaralar',
   },
   {
     href: '/maxsulotlar/panjaralar/darvoza',
@@ -41,11 +46,33 @@ const cardData = [
     alt: 'Qandil',
     text: 'Uyingiz ichini temir qandil bilan jozibali qiling',
   },
+];
+
+const slidesData = [
   {
-    href: '/maxsulotlar/panjaralar/boshqalar',
-    imgSrc: '/temirMaxsulot/boshqa/demaxot.jpg',
-    alt: 'Dudbo`ron',
-    text: "Oshxonangiga temirdan dudbo'ron qo'ying va uyingiz xavfsizligini ta'minlang",
+    img: '/qurilish/havoza/lesa6.jpg',
+    link: '/maxsulotlar/qurilishlar/havoza',
+    alt: 'Lesa',
+  },
+  {
+    img: '/qurilish/manalitHavoza/manalitLesa5.jpg',
+    link: '/maxsulotlar/qurilishlar/manalitLesa',
+    alt: 'Manalit Lesa',
+  },
+  {
+    img: '/qurilish/manalitUstun/stoyka10.jpg',
+    link: '/maxsulotlar/qurilishlar/manalitStoyka',
+    alt: 'Manalit Stoyka',
+  },
+  {
+   img: '/qurilish/manalitUstun/stoyka1.jpg',
+    link: '/maxsulotlar/qurilishlar/manalitStoyka',
+    alt: 'Manalit stoyka',
+  },
+  {
+     img: '/qurilish/manalitHavoza/manalitLesa2.jpg',
+    link: '/maxsulotlar/qurilishlar/manalitLesa',
+    alt: 'Manalit Lesa',
   },
 ];
 
@@ -58,7 +85,6 @@ const SectionWrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   width: 100%;
-
 `;
 
 const CardImageContainer = styled.div`
@@ -67,7 +93,7 @@ const CardImageContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem 0; 
+  padding: 2rem 0;
 `;
 
 const CardText = styled.div`
@@ -106,7 +132,7 @@ const StyledImage = styled.div`
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover; 
+    object-fit: cover;
     transition: transform 0.4s ease;
     border-radius: 3px;
   }
@@ -121,19 +147,21 @@ const StyledImage = styled.div`
 `;
 
 const VideoContainer = styled.div`
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 80%;
-  height: 50rem;
+  width: 95%;
+  height: 40rem;
   margin: 2rem auto;
 
   video {
     display: block;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 40rem;
-    border-radius: 5px;
+    width: 80%;
+    height: 38rem;
+    border-radius: 10px;
     object-fit: cover;
   }
 
@@ -157,7 +185,77 @@ const VideoContainer = styled.div`
   }
 `;
 
+// === Carousel Style ===
+
+const SliderContainer = styled.div`
+  width: 100%;
+  max-width: 80rem;
+  height: 35rem;
+  margin: 3rem auto;
+
+  .swiper {
+    padding: 2rem 0;
+  }
+
+  .swiper-slide {
+    transition: all 0.4s ease;
+    filter: blur(3px);
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  .swiper-slide-active {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5efefff;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* opacity: 0.5; */
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 5rem;
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute; /* 🔥 bu shart */
+    z-index: 10;
+  }
+
+  .swiper-button-next {
+    right: 15rem;
+  }
+
+  .swiper-button-prev {
+    left: 15rem;
+  }
+
+  .SlideWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 35rem;
+
+    img {
+      width: 30rem;
+      height: 35rem;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+`;
+
 // === Asosiy Komponent === //
+
 const CardWrapper = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -174,8 +272,14 @@ const CardWrapper = () => {
   };
 
   return (
-   
     <SectionWrapper>
+      <VideoContainer>
+        <video ref={videoRef} muted loop>
+          <source src="/temirMaxsulot/video/pechkada4.mp4" type="video/mp4" />
+          Sizning brauzeringiz videoni qo‘llab-quvvatlamaydi.
+        </video>
+        <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
+      </VideoContainer>
       <CardImageContainer>
         {cardData.map((card, index) => (
           <StyledImage key={index}>
@@ -186,17 +290,38 @@ const CardWrapper = () => {
           </StyledImage>
         ))}
       </CardImageContainer>
+      <SliderContainer>
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={3}
+          loop={true}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          modules={[EffectCoverflow, Navigation]}
+        >
+          {slidesData.map((slide, index) => (
+            <SwiperSlide key={index} className="SlideWrapper">
+              <Link href={slide.link}>
+                <img src={slide.img} alt={slide.alt} />
+              </Link>
+            </SwiperSlide>
+          ))}
 
-   
-      <VideoContainer>
-        <video ref={videoRef} muted loop>
-          <source src="/temirMaxsulot/video/pechka.mp4" type="video/mp4" />
-          Sizning brauzeringiz videoni qo‘llab-quvvatlamaydi.
-        </video>
-        <button onClick={togglePlay}>
-          {isPlaying ? 'Pause' : 'Play'}
-        </button>
-      </VideoContainer>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
+        </Swiper>
+      </SliderContainer>
     </SectionWrapper>
   );
 };
