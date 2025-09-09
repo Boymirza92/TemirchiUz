@@ -1,9 +1,11 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
-const page = () => {
-  return (
-    <div>Darvoza</div>
-  )
-}
+const Darvoza = () => {
+  return 
+  <>Darvoza</>;
+};
 
-export default page
+export default Darvoza;

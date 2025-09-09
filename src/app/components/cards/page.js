@@ -65,12 +65,12 @@ const slidesData = [
     alt: 'Manalit Stoyka',
   },
   {
-   img: '/qurilish/manalitUstun/stoyka1.jpg',
+    img: '/qurilish/manalitUstun/stoyka1.jpg',
     link: '/maxsulotlar/qurilishlar/manalitStoyka',
     alt: 'Manalit stoyka',
   },
   {
-     img: '/qurilish/manalitHavoza/manalitLesa2.jpg',
+    img: '/qurilish/manalitHavoza/manalitLesa2.jpg',
     link: '/maxsulotlar/qurilishlar/manalitLesa',
     alt: 'Manalit Lesa',
   },
@@ -273,13 +273,30 @@ const CardWrapper = () => {
 
   return (
     <SectionWrapper>
-      <VideoContainer>
-        <video ref={videoRef} muted loop>
-          <source src="/temirMaxsulot/video/pechkada4.mp4" type="video/mp4" />
-          Sizning brauzeringiz videoni qo‘llab-quvvatlamaydi.
-        </video>
-        <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
-      </VideoContainer>
+     {/* <VideoContainer>
+  <video ref={videoRef} muted loop>
+    <source
+      src="https://drive.google.com/uc?export=download&id=1hBOmnD2ZuqHFlAXWU4RUarCX69Q7SrRv"
+      type="video/mp4"
+    />
+    Sizning brauzeringiz videoni qo‘llab-quvvatlamaydi.
+  </video>
+  <button onClick={togglePlay}>
+    {isPlaying ? 'Pause' : 'Play'}
+  </button>
+</VideoContainer> */}
+<VideoContainer>
+  <iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/NP2UarcLqYE?controls=0&modestbranding=1&rel=0&showinfo=0"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+</VideoContainer>
+
       <CardImageContainer>
         {cardData.map((card, index) => (
           <StyledImage key={index}>

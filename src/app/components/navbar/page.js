@@ -8,18 +8,22 @@ import React from 'react';
 // === Asosiy Navigatsiya Styled Componentlari === //
 
 const Nav = styled.nav`
-  padding: 1rem 2rem;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
   color: #fff;
   top: 0;
   z-index: 1000;
   min-height: 64px;
   background-color: #1e1d1dff;
-`;
 
-const LogoContainer = styled.div`
+  @media(max-width: 768px){
+  }  
+  `;
+  
+  const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -201,7 +205,6 @@ const DropdownMenu = styled.div`
   top: 100%;
   left: 0;
   backdrop-filter: blur(10px);
-  /* background: #1f1f1f; */
   padding: 0 1rem;
   min-width: 220px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

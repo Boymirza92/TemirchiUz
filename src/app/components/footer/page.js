@@ -8,6 +8,7 @@ import {
   FaTelegramPlane,
   FaYoutube,
 } from 'react-icons/fa';
+import { IconsManifest } from 'react-icons';
 
 // === Style === //
 const FooterContainer = styled.footer`
@@ -46,6 +47,8 @@ const Brand = styled.div`
     opacity: 0.8;
     letter-spacing: 0.5px;
   }
+  img {
+    width: 12rem;
   }
 `;
 
@@ -55,7 +58,6 @@ const NavLinks = styled.nav`
   gap: 0.6rem;
   padding-top: 0.3rem;
   line-height: 1;
-
 
   a {
     display: flex;
@@ -81,21 +83,29 @@ const Contact = styled.div`
   line-height: 1.7;
   /* text-align: start; */
 
-
   strong {
     color: #a89a77ff;
   }
 `;
 
 const Socials = styled.div`
-  /* margin-top: 1.5rem; */
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: 1rem;
-
+  letter-spacing: 0.7px;
+`;
+const Icons = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   a {
     color: #f5f5f5;
     transition: color 0.2s;
+
     &:hover {
       color: #fbbf24;
     }
@@ -108,6 +118,7 @@ const Bottom = styled.div`
   opacity: 0.7;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 1rem;
+  
 `;
 
 // === Component ===
@@ -115,59 +126,58 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Brand>
-          <h2>Temirchi</h2>
+        <img src="/logotip/temirchiBrend.png" alt="Brend img" />
+        {/* <h2>Temirchi</h2>
           <p>
-            O‘zbek milliy brendi <br /> temir buyumlarda sifat va mustahkamlik
+            O'zbek milliy brendi <br /> temir buyumlarda sifat va mustahkamlik
             ramzi
-          </p>
-        </Brand>
+          </p> */}
+      </Brand>
       <FooterTop>
-        
-
         {/* Navigatsiya */}
         <NavLinks>
           <Link href="/">Bosh sahifa</Link>
           <Link href="/maxsulotlar">Mahsulotlar</Link>
           <Link href="/galereya">Galereya</Link>
           <Link href="/biz-haqimizda">Biz haqimizda</Link>
-          <Link href="/boglanish">Bog‘lanish</Link>
+          <Link href="/boglanish">Bog'lanish</Link>
         </NavLinks>
 
         {/* Kontakt */}
         <Contact>
           <p>
-            <strong>Manzil:</strong> Toshkent, O‘zbekiston
+            <strong>Manzil:</strong> Toshkent, Zangiota tumani, Baliqchi k. 6/9A
           </p>
           <p>
-            <strong>Tel:</strong> +998 90 123 45 67
+            <strong>Tel:</strong> +998 90 995 20 00 <br />
+            <strong>Tel:</strong> +998 99 772 20 00
           </p>
           <p>
-            <strong>Email:</strong> info@temirchi.uz
+            <strong>Email:</strong> temirchiozbekmilliybrendi@gmail.com
           </p>
+
           <p>
-            <strong>Ish vaqti:</strong> Dush–Yak: 09:00 – 20:00
+            <strong>Ish vaqti:</strong> Dush–Yak: 08:00 – 20:00
           </p>
         </Contact>
         <Socials>
-          ijtimoiy tarmoqlar
-          <Link href="#">
-            <FaFacebookF />
-          </Link>
-          <Link href="#">
-            <FaInstagram />
-          </Link>
-          <Link href="#">
-            <FaTelegramPlane />
-          </Link>
-          <Link href="#">
-            <FaYoutube />
-          </Link>
+          Ijtimoiy tarmoqlar
+          <Icons>
+            <Link href="https://www.facebook.com/profile.php?id=100095059977665&mibextid=LQQJ4d">
+              <FaFacebookF />
+            </Link>
+            <Link href="https://www.instagram.com/temirchi_lesa">
+              <FaInstagram />
+            </Link>
+            <Link href="https://t.me/temirchi_uzz">
+              <FaTelegramPlane />
+            </Link>
+          </Icons>
         </Socials>
       </FooterTop>
       <Bottom>© 2025 Temirchi. Barcha huquqlar himoyalangan.</Bottom>
     </FooterContainer>
   );
-  J;
-};
+  };
 
 export default Footer;
