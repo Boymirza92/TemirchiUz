@@ -40,12 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Barcha videolarni inkor qilish
-*.mp4
-*.mov
-*.avi
-*.mkv
-
-# public ichidagi video papkalar
-public/temirMaxsulot/video/
-public/qurilish/video/
