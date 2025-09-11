@@ -273,7 +273,7 @@ const CardWrapper = () => {
 
   return (
     <SectionWrapper>
-     {/* <VideoContainer>
+     <VideoContainer>
   <video ref={videoRef} muted loop>
     <source
       src="https://drive.google.com/uc?export=download&id=1hBOmnD2ZuqHFlAXWU4RUarCX69Q7SrRv"
@@ -284,8 +284,8 @@ const CardWrapper = () => {
   <button onClick={togglePlay}>
     {isPlaying ? 'Pause' : 'Play'}
   </button>
-</VideoContainer> */}
-<VideoContainer>
+</VideoContainer>
+{/* <VideoContainer>
   <iframe
   width="100%"
   height="400"
@@ -295,7 +295,7 @@ const CardWrapper = () => {
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
 ></iframe>
-</VideoContainer>
+</VideoContainer> */}
 
       <CardImageContainer>
         {cardData.map((card, index) => (
