@@ -8,7 +8,6 @@ import React from 'react';
 // === Asosiy Navigatsiya Styled Componentlari === //
 
 const Nav = styled.nav`
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,11 +18,11 @@ const Nav = styled.nav`
   min-height: 64px;
   background-color: #1e1d1dff;
 
-  @media(max-width: 768px){
-  }  
-  `;
-  
-  const LogoContainer = styled.div`
+  @media (max-width: 768px) {
+  }
+`;
+
+const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -69,11 +68,13 @@ const Right = styled.div`
   width: 1rem;
   height: 2.5rem;
 `;
+
 const Top = styled.div`
   width: 1rem;
   height: 1rem;
   background-color: #fbfbfeff;
 `;
+
 const Bottom = styled.div`
   width: 1rem;
   height: 1rem;
@@ -141,20 +142,23 @@ const SubMenu = styled.div`
   position: absolute;
   top: -0.3rem;
   left: 100%;
-  backdrop-filter: blur(10px);
   padding: 1rem;
   min-width: 10rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   z-index: 1002;
+  background-color: #fff;
+  color: #112b47;
+  font-size: 1rem;
+  font-weight: bold;
 
   a {
     margin-bottom: 0.5rem;
     display: block;
 
     &:hover {
-      color: #d0c7c7ff;
-      font-size: 1.02rem;
+      font-size: 0.95rem;
+      transition: all 0.1s ease-in-out;
     }
 
     &:last-child {
@@ -175,21 +179,24 @@ const SubMenuItem = styled.div`
   position: relative;
   padding: 0.8rem 0;
   cursor: pointer;
+  color: #112b47;
 
-  &:hover {
-    backdrop-filter: blur(10px);
-
-    span {
-      color: #c3c5c6ff;
-      font-size: 1.02rem;
-      transition: all 0.1s ease-in-out;
-
+  span {
+    color: #112b47;
+    font-size: 1.02rem;
+    transition: all 0.1s ease-in-out;
+    
+    &:hover {
+      background-color: #fdeeeeff;
+      color: #112b47;
+      font-size: 1rem;
+      font-weight: bold;
     }
   }
 
   span {
-    color: #fff;
-    font-weight: 600;
+     color: #112b47;
+    font-weight: bold;
   }
 
   &:hover > ${SubMenu} {
@@ -204,12 +211,18 @@ const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  backdrop-filter: blur(10px);
   padding: 0 1rem;
   min-width: 220px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   z-index: 1001;
+  background-color: #fdeeeeff;
+
+  &:hover {
+    color: #112b47;
+    font-size: 1rem;
+    font-weight: bold;
+  }
 
   @media (max-width: 768px) {
     display: block;
@@ -244,7 +257,7 @@ const NavItem = styled.li`
   }
 `;
 
-// === Navbar Komponentining o'zi === //
+// === Navbar Komponent === //
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -302,7 +315,7 @@ const Navbar = () => {
               <SubMenu open={activeSubMenu === 'qurilish'}>
                 <Link href="/maxsulotlar/qurilishlar/havoza">Havoza</Link>
                 <Link href="/maxsulotlar/qurilishlar/manalitLesa">
-                  Manalit havoza{' '}
+                  Manalit havoza
                 </Link>
                 <Link href="/maxsulotlar/qurilishlar/manalitStoyka">
                   Manalit ustun
