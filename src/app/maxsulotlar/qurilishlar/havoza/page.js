@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ const SectionWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh; /* height o'rniga min-height yaxshiroq */
+  max-height: 100vh;
   background-image: url('/qurilish/havoza/imageCopy.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,6 +21,16 @@ const SectionWrapper = styled.div`
   box-sizing: border-box;
 `;
 
+const SectionHero = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 50rem;
+`;
+
+// Logatip styled //
 const LogotipContainer = styled.a`
   display: flex;
   align-items: center;
@@ -129,11 +139,29 @@ const SectionText = styled.div`
   }
 `;
 
- const GallerySection = styled.section`
+const InfoText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  min-height: 100vh; /* Bu blok ham kamida ekran bo'yicha joy egallaydi */
-  background-color: #1a1a1d; /* Orqa fon uchun to'q rang */
-  padding: 5rem 2rem; /* Kontent uchun yuqoridan va yonlardan joy */
+  height: auto;
+  padding: 2rem 5rem;
+  text-align: center;
+  background-color: aquamarine;
+
+  h2 {
+    width: 80%;
+
+    font-size: 1.3rem;
+    color: #302e2eff;
+    letter-spacing: 0.01rem;
+  }
+`;
+
+const GallerySection = styled.section`
+  width: 100%;
+  min-height: 100vh;
+  padding: 5rem 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -149,75 +177,166 @@ const GalleryTitle = styled.h2`
   border-bottom: 2px solid #1f1f69ff;
   padding-bottom: 1rem;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 2.2rem;
     text-align: center;
   }
 `;
 
-// ImageCard nomini ImageGrid'ga o'zgartirdik, ma'nosi aniqroq bo'lishi uchun
 const ImageGrid = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Rasmlar sig'maganda pastki qatorga tushadi */
+  flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
-  max-width: 1200px; /* Galereyaning maksimal kengligi */
-  
+
   img {
-    width: 300px;
-    height: 250px;
-    object-fit: cover; /* Rasm o'ziga ajratilgan joyni to'liq egallaydi */
-    border-radius: 8px;
+    width: 25rem;
+    height: 22rem;
+    object-fit: cover;
+    border-radius: 4px;
     border: 3px solid #333;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
     &:hover {
-        transform: scale(1.05) translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      transform: scale(1.05) translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
   }
 
   @media (max-width: 768px) {
     img {
-      width: 100%; /* Mobil qurilmada rasm to'liq kenglikni egallaydi */
+      width: 100%;
     }
   }
 `;
 
+// ==== MODAL ====
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const ModalImage = styled.img`
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`;
 
 const App = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openImage = (src) => setSelectedImage(src);
+  const closeImage = () => setSelectedImage(null);
   return (
     <>
-    <SectionWrapper>
-      <LogotipContainer>
-        <Logotip>
-          <Left />
-          <Right>
-            <Top />
-            <Bottom />
-          </Right>
-        </Logotip>
-      </LogotipContainer>
-      <SectionText>
-        <h1>Temirchi</h1>
-        <p>o'zbek milliy brendi</p>
-        <p>
-          sizni qurilishlaringizga mustahkam va ishonchli <br />
-          havozalarni taklif qiladi
-        </p>
-      </SectionText>
+      <SectionWrapper>
+        <SectionHero>
+          <LogotipContainer>
+            <Logotip>
+              <Left />
+              <Right>
+                <Top />
+                <Bottom />
+              </Right>
+            </Logotip>
+          </LogotipContainer>
+          <SectionText>
+            <h1>Temirchi</h1>
+            <p>o'zbek milliy brendi</p>
+            <p>
+              sizni qurilishlaringizga mustahkam va ishonchli <br />
+              havozalarni taklif qiladi
+            </p>
+          </SectionText>
+        </SectionHero>
+      </SectionWrapper>
+
       <GallerySection>
-        <GalleryTitle>Bizning Ishlarimizdan Namunalar</GalleryTitle>
+        <InfoText>
+          <h2>
+            Havoza — qurilish va ta'mirlash jarayonida balandlikda xavfsiz ishlash
+            uchun mo'ljallangan metall konstruksiya. Mustahkamligi va qulayligi
+            bilan ishni tez, xavfsiz va samarali bajarishga yordam beradi.
+          </h2>
+        </InfoText>
         <ImageGrid>
-          <img src="/qurilish/havoza/image.png" alt="Lesa 1" />
-          <img src="/qurilish/havoza/lesa7.jpg" alt="Lesa 2" />
-          <img src="/qurilish/havoza/image.png" alt="Lesa 3" />
-          <img src="/qurilish/havoza/lesa7.jpg" alt="Lesa 4" />
+          <img
+            src="/qurilish/havoza/imageCopy.png"
+            alt="Lesa 1"
+            onClick={() => openImage('/qurilish/havoza/imageCopy.png')}
+          />
+          <img
+            src="/qurilish/havoza/lesa1.jpg"
+            alt="Lesa 2"
+            onClick={() => openImage('/qurilish/havoza/lesa1.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa2.jpg"
+            alt="Lesa 3"
+            onClick={() => openImage('/qurilish/havoza/lesa2.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa3.jpg"
+            alt="Lesa 4"
+            onClick={() => openImage('/qurilish/havoza/lesa3.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa4.jpg"
+            alt="Lesa 5"
+            onClick={() => openImage('/qurilish/havoza/lesa4.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa5.jpg"
+            alt="Lesa 6"
+            onClick={() => openImage('/qurilish/havoza/lesa5.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa6.jpg"
+            alt="Lesa 7"
+            onClick={() => openImage('/qurilish/havoza/lesa6.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa7.jpg"
+            alt="Lesa 8"
+            onClick={() => openImage('/qurilish/havoza/lesa7.jpg')}
+          />
+          <img
+            src="/qurilish/havoza/lesa8.jpg"
+            alt="Lesa 9"
+            onClick={() => openImage('/qurilish/havoza/lesa8.jpg')}
+          />
         </ImageGrid>
+        {selectedImage && (
+          <ModalOverlay onClick={closeImage}>
+            <ModalImage src={selectedImage} alt="Selected" />
+          </ModalOverlay>
+        )}
       </GallerySection>
-    </SectionWrapper>
     </>
   );
 };

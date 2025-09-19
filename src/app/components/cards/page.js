@@ -114,12 +114,31 @@ const CardText = styled.div`
   }
 `;
 
+const InfoText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 2rem 5rem;
+  text-align: center;
+  background-color: aquamarine;
+
+  h2 {
+    width: 80%;
+
+    font-size: 1.3rem;
+    color: #302e2eff;
+    letter-spacing: 0.01rem;
+  }
+`;
+
 const StyledImage = styled.div`
   position: relative;
   overflow: hidden;
   width: 25rem;
   height: 25rem;
-  border-radius: 5px;
+  border-radius: 2px;
 
   a {
     display: block;
@@ -134,7 +153,6 @@ const StyledImage = styled.div`
     display: block;
     object-fit: cover;
     transition: transform 0.4s ease;
-    border-radius: 3px;
   }
 
   &:hover ${CardText} {
@@ -151,9 +169,9 @@ const VideoContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 95%;
-  height: 40rem;
-  margin: 2rem auto;
+  width: 100%;
+  height: 50rem;
+  background-color: #000;
 
   video {
     display: block;
@@ -190,7 +208,7 @@ const VideoContainer = styled.div`
 const SliderContainer = styled.div`
   width: 100%;
   max-width: 80rem;
-  height: 35rem;
+  height: auto;
   margin: 3rem auto;
 
   .swiper {
@@ -248,7 +266,7 @@ const SliderContainer = styled.div`
       width: 30rem;
       height: 35rem;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 1px;
       cursor: pointer;
     }
   }
@@ -280,6 +298,14 @@ const CardWrapper = () => {
         </video>
         <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>
       </VideoContainer>
+      <InfoText>
+        <h2>
+          Temir mahsulotlarimiz — mustahkamligi, chidamliligi va zamonaviy
+          dizayni bilan ajralib turadi. Darvoza, panjara, perilla va boshqa
+          buyumlar nafaqat xavfsizlikni, balki uy va hovlilarga chiroyli
+          ko'rinish ham beradi.
+        </h2>
+      </InfoText>
       <CardImageContainer>
         {cardData.map((card, index) => (
           <StyledImage key={index}>
@@ -290,7 +316,15 @@ const CardWrapper = () => {
           </StyledImage>
         ))}
       </CardImageContainer>
+
       <SliderContainer>
+        <InfoText>
+          <h2>
+            Qurilish mahsulotlarimiz — sifatli va ishonchli. Havoza va boshqa
+            metall konstruksiyalar balandlikda ishlashni xavfsiz, qulay va tez
+            amalga oshirish imkonini beradi.
+          </h2>
+        </InfoText>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}

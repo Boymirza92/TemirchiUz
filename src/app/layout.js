@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from './components/navbar/page';
+import Footer from './components/footer/page';
 import StyledComponentsRegistry from '@/lib/registry';
 import {
   Poppins,
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
       <StyledComponentsRegistry>
         <Navbar />
         {children}
+        <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
