@@ -169,20 +169,6 @@ const GallerySection = styled.section`
   gap: 2rem;
 `;
 
-const GalleryTitle = styled.h2`
-  font-size: 3rem;
-  color: #f4f4f4;
-  margin-bottom: 2rem;
-  font-family: lato, sans-serif;
-  border-bottom: 2px solid #1f1f69ff;
-  padding-bottom: 1rem;
-
-  @media (max-width: 768px) {
-    font-size: 2.2rem;
-    text-align: center;
-  }
-`;
-
 const ImageGrid = styled.div`
   display: flex;
   justify-content: center;
@@ -279,9 +265,10 @@ const App = () => {
       <GallerySection>
         <InfoText>
           <h2>
-            Havoza — qurilish va ta'mirlash jarayonida balandlikda xavfsiz ishlash
-            uchun mo'ljallangan metall konstruksiya. Mustahkamligi va qulayligi
-            bilan ishni tez, xavfsiz va samarali bajarishga yordam beradi.
+            Havoza — qurilish va ta'mirlash jarayonida balandlikda xavfsiz
+            ishlash uchun mo'ljallangan metall konstruksiya. Mustahkamligi va
+            qulayligi bilan ishni tez, xavfsiz va samarali bajarishga yordam
+            beradi.
           </h2>
         </InfoText>
         <ImageGrid>
