@@ -30,115 +30,6 @@ const SectionHero = styled.div`
   height: 50rem;
 `;
 
-// Logatip styled //
-const LogotipContainer = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 12rem;
-  height: 12rem;
-
-  @media (max-width: 768px) {
-    width: 7rem;
-    height: 7rem;
-  }
-`;
-
-const Logotip = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  gap: 2rem;
-  transform: rotate(45deg);
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-  }
-`;
-
-const Left = styled.div`
-  width: 3rem;
-  height: 8rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 5rem;
-  }
-`;
-
-const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 3rem;
-  height: 8rem;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 5rem;
-    gap: 1rem;
-  }
-`;
-const Top = styled.div`
-  width: 3rem;
-  height: 3rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-const Bottom = styled.div`
-  width: 3rem;
-  height: 3rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-
-const SectionText = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  h1 {
-    font-size: 8rem;
-    color: #f1f1f7ff;
-    font-family: lato, sans-serif;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(254, 249, 249, 0.5);
-  }
-
-  p {
-    font-size: 2rem;
-    color: rgba(234, 228, 227, 1);
-    font-family: lato, sans-serif;
-    letter-spacing: 2px;
-    backdrop-filter: blur(0.5px);
-    font-weight: bold;
-    text-shadow: 2px 2px 10px #110e0eff;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(10, 10, 10, 10);
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 5rem;
-    }
-  }
-`;
-
 const InfoText = styled.div`
   display: flex;
   justify-content: center;
@@ -168,7 +59,6 @@ const GallerySection = styled.section`
   align-items: center;
   gap: 2rem;
 `;
-
 
 const ImageGrid = styled.div`
   display: flex;
@@ -243,81 +133,83 @@ const App = () => {
   return (
     <>
       <SectionWrapper>
-        <SectionHero>
-          {/* <LogotipContainer>
-            <Logotip>
-              <Left />
-              <Right>
-                <Top />
-                <Bottom />
-              </Right>
-            </Logotip>
-          </LogotipContainer> */}
-          {/* <SectionText>
-            <h1>Temirchi</h1>
-            <p>o'zbek milliy brendi</p>
-            <p>
-              sizni qurilishlaringizga mustahkam va ishonchli <br />
-              havozalarni taklif qiladi
-            </p>
-          </SectionText> */}
-        </SectionHero>
+        <SectionHero></SectionHero>
       </SectionWrapper>
 
       <GallerySection>
         <InfoText>
           <h2>
-            Havoza — qurilish va ta'mirlash jarayonida balandlikda xavfsiz
-            ishlash uchun mo'ljallangan metall konstruksiya. Mustahkamligi va
-            qulayligi bilan ishni tez, xavfsiz va samarali bajarishga yordam
-            beradi.
+            Manalit havoza — qurilish jarayonida ikki tomonlama vazifani
+            bajaruvchi ishonchli konstruktsiya. U nafaqat ustun vazifasini,
+            balki takomillashtirilgan holda havozaning imkoniyatlarini ham
+            o'zida mujassam etadi. Beton quyish va balandlikda bajariladigan
+            ishlar uchun mustahkam tayanch bo'lib xizmat qiladi. Bu bilan ishni
+            tez, xavfsiz va samarali bajarishga yordam beradi
           </h2>
         </InfoText>
         <ImageGrid>
           <img
             src="/qurilish/manalitHavoza/manalitLesa1.jpg"
             alt="Lesa 1"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa1.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa1.jpg')
+            }
           />
           <img
             src="/qurilish/manalitHavoza/manalitLesa2.jpg"
             alt="Lesa 2"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa2.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa2.jpg')
+            }
           />
           <img
-             src="/qurilish/manalitHavoza/manalitLesa3.jpg"
+            src="/qurilish/manalitHavoza/manalitLesa3.jpg"
             alt="Lesa 3"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa3.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa3.jpg')
+            }
           />
           <img
             src="/qurilish/manalitHavoza/manalitLesa4.jpg"
             alt="Lesa 4"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa4.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa4.jpg')
+            }
           />
           <img
-             src="/qurilish/manalitHavoza/manalitLesa9.jpg"
+            src="/qurilish/manalitHavoza/manalitLesa9.jpg"
             alt="Lesa 5"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa9.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa9.jpg')
+            }
           />
           <img
-             src="/qurilish/manalitHavoza/manalitLesa6.jpg"
+            src="/qurilish/manalitHavoza/manalitLesa6.jpg"
             alt="Lesa 6"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa6.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa6.jpg')
+            }
           />
           <img
-             src="/qurilish/manalitHavoza/manalitLesa10.jpg"
+            src="/qurilish/manalitHavoza/manalitLesa10.jpg"
             alt="Lesa 7"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa10.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa10.jpg')
+            }
           />
           <img
-             src="/qurilish/manalitHavoza/manalitLesa11.jpg"
+            src="/qurilish/manalitHavoza/manalitLesa11.jpg"
             alt="Lesa 8"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa11.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa11.jpg')
+            }
           />
           <img
             src="/qurilish/manalitHavoza/manalitLesa5.jpg"
             alt="Lesa 9"
-            onClick={() => openImage('/qurilish/manalithavoza/manalitLesa5.jpg')}
+            onClick={() =>
+              openImage('/qurilish/manalithavoza/manalitLesa8.png')
+            }
           />
         </ImageGrid>
         {selectedImage && (
