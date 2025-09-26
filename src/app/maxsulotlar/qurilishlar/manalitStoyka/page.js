@@ -226,6 +226,15 @@ const App = () => {
             onClick={() => openImage('/qurilish/manalitUstun/stoyka12.jpg')}
           />
         </ImageGrid>
+         <InfoText>
+          <h2>
+           Bizning ishlab chiqarayotgan monolit stoykalarimiz yuqori sifatli
+  materiallardan tayyorlangan bo'lib, ishonchliligi va qulayligi
+  bilan ajralib turadi. Ularni sotib olish yoki ijaraga olish
+  imkoniyati mavjud. Qo'shimcha ma'lumot va buyurtmalar uchun biz
+  bilan bog'laning.
+          </h2>
+        </InfoText>
         {selectedImage && (
           <ModalOverlay onClick={closeImage}>
             <ModalImage src={selectedImage} alt="Selected" />

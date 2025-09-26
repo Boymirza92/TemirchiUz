@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import 'swiper/css/navigation';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';

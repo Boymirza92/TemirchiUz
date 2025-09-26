@@ -320,7 +320,6 @@ const Navbar = () => {
                 <Link href="/maxsulotlar/qurilishlar/manalitStoyka">
                   Manalit ustun
                 </Link>
-                <Link href="/maxsulotlar/qurilishlar/boshqalar">Boshqalar</Link>
               </SubMenu>
             </SubMenuItem>
 
@@ -345,7 +344,7 @@ const Navbar = () => {
           <Link href="/about">Biz haqimizda</Link>
         </NavItem>
         <NavItem>
-          <Link href="/contact">Bog‘lanish</Link>
+          <Link href="/contact">Bog'lanish</Link>
         </NavItem>
       </NavLinks>
     </Nav>

@@ -211,6 +211,15 @@ const App = () => {
               openImage('/qurilish/manalithavoza/manalitLesa8.png')
             }
           />
+          <InfoText>
+            <h2>
+              Bizning ishlab chiqarayotgan manalit havoza konstruksiyalarimiz
+              yuqori sifatli metallardan tayyorlangan bo'lib, bardoshliligi va
+              qulayligi bilan ajralib turadi. Ularni sotib olish yoki ijaraga
+              olish imkoniyati mavjud. Batafsil ma'lumot va buyurtmalar uchun
+              biz bilan bog'laning.
+            </h2>
+          </InfoText>
         </ImageGrid>
         {selectedImage && (
           <ModalOverlay onClick={closeImage}>

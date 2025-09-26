@@ -241,25 +241,7 @@ const App = () => {
   return (
     <>
       <SectionWrapper>
-        <SectionHero>
-          <LogotipContainer>
-            <Logotip>
-              <Left />
-              <Right>
-                <Top />
-                <Bottom />
-              </Right>
-            </Logotip>
-          </LogotipContainer>
-          <SectionText>
-            <h1>Temirchi</h1>
-            <p>o'zbek milliy brendi</p>
-            <p>
-              sizni qurilishlaringizga mustahkam va ishonchli <br />
-              havozalarni taklif qiladi
-            </p>
-          </SectionText>
-        </SectionHero>
+        <SectionHero></SectionHero>
       </SectionWrapper>
 
       <GallerySection>
@@ -318,6 +300,16 @@ const App = () => {
             onClick={() => openImage('/qurilish/havoza/lesa8.jpg')}
           />
         </ImageGrid>
+        <InfoText>
+          <h2>
+            Ushbu galereyada siz biz ishlab chiqargan havoza modellari bilan
+            tanishdingiz. Bizning metall konstruksiyalarimizni arzon narxlarda
+            sotib olishingiz yoki ijaraga olishingiz mumkin. Mustahkamligi,
+            sifatli materiali va xavfsizligi bilan ish jarayonini tez va
+            samarali bajarishga yordam beradi. Qo'shimcha ma'lumot va buyurtma
+            uchun biz bilan bog'laning.
+          </h2>
+        </InfoText>
         {selectedImage && (
           <ModalOverlay onClick={closeImage}>
             <ModalImage src={selectedImage} alt="Selected" />

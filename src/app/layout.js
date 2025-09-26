@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="uz">
       <body
-  className={`
+        className={`
     ${poppins.variable}
     ${roboto.variable}
     ${inter.variable}
@@ -72,11 +72,12 @@ export default function RootLayout({ children }) {
     ${lato.variable}
     ${montserrat.variable}
     ${geist.variable}
-  `}>
-      <StyledComponentsRegistry>
-        <Navbar />
-        {children}
-        <Footer />
+  `}
+      >
+        <StyledComponentsRegistry>
+          <Navbar />
+          {children}
+          <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
