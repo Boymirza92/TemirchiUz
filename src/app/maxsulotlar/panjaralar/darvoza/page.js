@@ -80,7 +80,7 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/darvoza/darvoza44.jpg');
+  background-image: url('/temirMaxsulot/darvoza/darvozaFon.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
