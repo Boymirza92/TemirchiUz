@@ -80,7 +80,7 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/darvoza/darvozaFon.png');
+  background-image: url('/temirMaxsulot/darvoza/darvozaFon1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -513,12 +513,12 @@ const App = () => {
       <InfoText>
         <h2>
           Biz tayyorlaydigan darvozalar har bir mijozning o'ziga xos talabiga
-          qarab, faqat buyurma asosida ishlab chiqariladi. Siz orzu qilgan shakl,
-          naqsh yoki o'lchamdan qat'i nazar, biz uni sifatli metall va zamonaviy
-          texnologiyalar yordamida amalga oshiramiz. <br/> Agar hovlingizga
-          mustahkam, chiroyli va uzoq yillar xizmat qiladigan darvoza
-          xohlasangiz — bugunoq biz bilan bog'laning. Sizning buyurtmangizni
-          individual yondashuv bilan bajarishga tayyormiz!
+          qarab, faqat buyurma asosida ishlab chiqariladi. Siz orzu qilgan
+          shakl, naqsh yoki o'lchamdan qat'i nazar, biz uni sifatli metall va
+          zamonaviy texnologiyalar yordamida amalga oshiramiz. <br /> Agar
+          hovlingizga mustahkam, chiroyli va uzoq yillar xizmat qiladigan
+          darvoza xohlasangiz — bugunoq biz bilan bog'laning. Sizning
+          buyurtmangizni individual yondashuv bilan bajarishga tayyormiz!
         </h2>
       </InfoText>
     </>
