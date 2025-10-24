@@ -80,7 +80,7 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/perilla/perila23.jpg');
+  background-image: url('/temirMaxsulot/perilla/perilaFon.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

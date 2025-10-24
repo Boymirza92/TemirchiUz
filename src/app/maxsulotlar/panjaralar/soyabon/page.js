@@ -17,8 +17,8 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/naves/naves14.jpg');
-  background-size: cover;
+  background-image: url('/temirMaxsulot/naves/navesFon.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -96,73 +96,6 @@ const ImageGrid = styled.div`
   }
 `;
 
-// == SLIDER == //
-const SliderContainer = styled.div`
-  width: 100%;
-  max-width: 80rem;
-  height: auto;
-  margin: 3rem auto;
-
-  .swiper {
-    padding: 2rem 0;
-  }
-
-  .swiper-slide {
-    transition: all 0.4s ease;
-    filter: blur(3px);
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-
-  .swiper-slide-active {
-    filter: blur(0);
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #f5efefff;
-    background-color: rgba(0, 0, 0, 0.3);
-    /* opacity: 0.5; */
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    font-size: 5rem;
-    font-weight: bold;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute; /* 🔥 bu shart */
-    z-index: 10;
-  }
-
-  .swiper-button-next {
-    right: 15rem;
-  }
-
-  .swiper-button-prev {
-    left: 15rem;
-  }
-
-  .SlideWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30rem;
-    height: 35rem;
-
-    img {
-      width: 30rem;
-      height: 35rem;
-      object-fit: cover;
-      border-radius: 1px;
-      cursor: pointer;
-    }
-  }
-`;
 
 // ==== MODAL ====
 

@@ -58,8 +58,8 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/panjara/panjara1.jpg');
-  background-size: cover;
+  background-image: url('/temirMaxsulot/panjara/oynaFon.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;

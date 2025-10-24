@@ -80,8 +80,8 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
-  background-image: url('/temirMaxsulot/darvoza/darvozaFon1.png');
-  background-size: cover;
+  background-image: url('/temirMaxsulot/darvoza/darvozaFon6.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -95,7 +95,14 @@ const SectionHero = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  /* background-color: red; */
   height: 50rem;
+
+  img{
+    /* width: 100%;
+    height: 100%;
+    object-fit: contain; */
+  }
 `;
 
 const InfoText = styled.div`
@@ -269,7 +276,9 @@ const App = () => {
   return (
     <>
       <SectionWrapper>
-        <SectionHero></SectionHero>
+        <SectionHero>
+          {/* <img src='/temirMaxsulot/darvoza/darvozaFon6.jpg'/> */}
+        </SectionHero>
       </SectionWrapper>
 
       <GallerySection>

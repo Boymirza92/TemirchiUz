@@ -330,7 +330,6 @@ const Navbar = () => {
                 <Link href="/maxsulotlar/panjaralar/panjara">Panjara</Link>
                 <Link href="/maxsulotlar/panjaralar/perilla">Perilla</Link>
                 <Link href="/maxsulotlar/panjaralar/soyabon">Soyabon</Link>
-                <Link href="/maxsulotlar/panjaralar/tosiq">To'siqlar</Link>
                 <Link href="/maxsulotlar/panjaralar/boshqalar">Boshqalar</Link>
               </SubMenu>
             </SubMenuItem>
@@ -338,13 +337,13 @@ const Navbar = () => {
         </NavItem>
 
         <NavItem>
-          <Link href="/gallery">Galereya</Link>
+          <Link href="/components/galereya">Galereya</Link>
         </NavItem>
         <NavItem>
-          <Link href="/about">Biz haqimizda</Link>
+          <Link href="/components/contact">Biz haqimizda</Link>
         </NavItem>
         <NavItem>
-          <Link href="/contact">Bog'lanish</Link>
+          <Link href="/components/contact">Bog'lanish</Link>
         </NavItem>
       </NavLinks>
     </Nav>
