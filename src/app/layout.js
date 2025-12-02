@@ -63,7 +63,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="uz">
-      <body
+      <body style={{ display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          minHeight: "100vh",
+          margin: "0",
+          padding: "0",
+          width: "100%",
+          overflowX: "hidden" }}
         className={`
     ${poppins.variable}
     ${roboto.variable}

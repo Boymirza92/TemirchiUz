@@ -17,6 +17,8 @@ const FooterContainer = styled.footer`
   padding: 2rem;
   text-align: center;
   margin-top: 3rem;
+
+  
 `;
 
 const FooterTop = styled.div`
@@ -30,6 +32,7 @@ const FooterTop = styled.div`
 
   @media (max-width: 768px) {
     text-align: center;
+    gap: 1.5rem;
   }
 `;
 
@@ -72,6 +75,12 @@ const NavLinks = styled.nav`
       color: #fbbf24;
     }
   }
+
+  @media (max-width: 450px) {
+    a{
+      font-size: 0.7rem;
+    }
+  }
 `;
 
 const Contact = styled.div`
@@ -81,10 +90,14 @@ const Contact = styled.div`
   align-items: flex-start;
   font-size: 0.9rem;
   line-height: 1.7;
-  /* text-align: start; */
 
   strong {
     color: #a89a77ff;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+    
   }
 `;
 
@@ -94,7 +107,12 @@ const Socials = styled.div`
   flex-direction: column;
   gap: 1rem;
   letter-spacing: 0.7px;
+
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
 `;
+
 const Icons = styled.div`
   display: flex;
   flex-direction: row;
@@ -119,6 +137,9 @@ const Bottom = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 1rem;
   
+   @media (max-width: 450px) {
+    font-size: 0.6rem;
+  }
 `;
 
 // === Component ===
@@ -127,20 +148,16 @@ const Footer = () => {
     <FooterContainer>
       <Brand>
         <img src="/logotip/temirchiBrend.png" alt="Brend img" />
-        {/* <h2>Temirchi</h2>
-          <p>
-            O'zbek milliy brendi <br /> temir buyumlarda sifat va mustahkamlik
-            ramzi
-          </p> */}
+       
       </Brand>
       <FooterTop>
         {/* Navigatsiya */}
         <NavLinks>
           <Link href="/">Bosh sahifa</Link>
-          <Link href="/maxsulotlar">Mahsulotlar</Link>
-          <Link href="/galereya">Galereya</Link>
-          <Link href="/biz-haqimizda">Biz haqimizda</Link>
-          <Link href="/boglanish">Bog'lanish</Link>
+          <Link href="/maxsulotlar/panjaralar/darvoza">Mahsulotlar</Link>
+          <Link href="/components/galereya">Galereya</Link>
+          <Link href="/components/contact">Biz haqimizda</Link>
+          <Link href="/components/contact">Bog'lanish</Link>
         </NavLinks>
 
         {/* Kontakt */}

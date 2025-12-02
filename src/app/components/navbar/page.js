@@ -19,7 +19,7 @@ const Nav = styled.nav`
   background-color: #1e1d1dff;
 
   @media (max-width: 768px) {
-  }
+    padding-left: 3rem;}
 `;
 
 const LogoContainer = styled.div`
@@ -44,6 +44,7 @@ const LogoContainer = styled.div`
     }
   }
 `;
+
 const Logotip = styled.div`
   display: flex;
   align-items: center;
@@ -80,6 +81,7 @@ const Bottom = styled.div`
   height: 1rem;
   background-color: #fbfbfeff;
 `;
+
 const Burger = styled.div`
   display: none;
   flex-direction: column;
@@ -108,6 +110,12 @@ const Burger = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+  }
+  @media (max-width: 400px) {
+    right: 2rem;
   }
 `;
 
@@ -121,7 +129,7 @@ const NavLinks = styled.ul`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     background-color: #1f1f1f;
     top: 0;
     right: 0;
@@ -135,7 +143,27 @@ const NavLinks = styled.ul`
   }
 `;
 
-// === Ko'p bosqichli menyu uchun stillar === //
+const DropdownMenu = styled.div`
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 1rem;
+  min-width: 220px;
+  background-color: #fdeeeeff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1001;
+
+  @media (max-width: 768px) {
+    display: ${({ open }) => (open ? 'block' : 'none')};
+    position: static;
+    box-shadow: none;
+    padding: 0.5rem 0 0;
+    background: transparent;
+    ;
+  }
+`;
 
 const SubMenu = styled.div`
   display: none;
@@ -177,25 +205,11 @@ const SubMenu = styled.div`
 
 const SubMenuItem = styled.div`
   position: relative;
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
   cursor: pointer;
   color: #112b47;
 
   span {
-    color: #112b47;
-    font-size: 1.02rem;
-    transition: all 0.1s ease-in-out;
-    
-    &:hover {
-      background-color: #fdeeeeff;
-      color: #112b47;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-  }
-
-  span {
-     color: #112b47;
     font-weight: bold;
   }
 
@@ -203,33 +217,6 @@ const SubMenuItem = styled.div`
     @media (min-width: 769px) {
       display: block;
     }
-  }
-`;
-
-const DropdownMenu = styled.div`
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding: 0 1rem;
-  min-width: 220px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  z-index: 1001;
-  background-color: #fdeeeeff;
-
-  &:hover {
-    color: #112b47;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  @media (max-width: 768px) {
-    display: block;
-    position: static;
-    box-shadow: none;
-    padding: 0.5rem 0 0;
-    background: transparent;
   }
 `;
 
@@ -257,24 +244,59 @@ const NavItem = styled.li`
   }
 `;
 
+const MobileFix = styled.div`
+  @media (max-width: 768px) {
+    ${DropdownMenu} {
+      background: transparent;
+      padding: 0.5rem 0 0;
+    }
+
+    ${SubMenuItem} {
+      color: #fff;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #444;
+      width: 100%;
+
+    }
+
+    ${SubMenu} a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ddd !important;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    ${SubMenu} a:hover {
+      background: #333;
+      border-radius: 4px;
+      color: #fff !important;
+    }
+
+    ${SubMenu} {
+      background: #1f1f1f;
+      padding-left: 0.5rem;
+      border-left: 2px solid #555;
+      margin-top: 0.5rem;
+    }
+  }
+`;
+
 // === Navbar Komponent === //
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
-  const toggleSubMenu = (subMenuName) => {
-    if (activeSubMenu === subMenuName) {
+  const toggleSubMenu = (name) => {
+    if (activeSubMenu === name) {
       setActiveSubMenu(null);
     } else {
-      setActiveSubMenu(subMenuName);
+      setActiveSubMenu(name);
     }
   };
 
   const handleMenuToggle = () => {
-    if (menuOpen) {
-      setActiveSubMenu(null);
-    }
     setMenuOpen(!menuOpen);
   };
 
@@ -301,51 +323,54 @@ const Navbar = () => {
         <span />
         <span />
       </Burger>
+      <MobileFix>
+        <NavLinks open={menuOpen}>
+          <NavItem>
+            <Link href="/">Bosh sahifa</Link>
+          </NavItem>
 
-      <NavLinks open={menuOpen}>
-        <NavItem>
-          <Link href="/">Bosh sahifa</Link>
-        </NavItem>
+          <NavItem>
+            <a onClick={(e) => e.preventDefault()}>Mahsulotlar</a>
+            <DropdownMenu open={menuOpen}>
+              <SubMenuItem onClick={() => toggleSubMenu('qurilish')}>
+                <span>Qurilish mahsulotlari</span>
+                <SubMenu open={activeSubMenu === 'qurilish'}>
+                  <Link href="/maxsulotlar/qurilishlar/havoza">Havoza</Link>
+                  <Link href="/maxsulotlar/qurilishlar/manalitLesa">
+                    Manalit havoza
+                  </Link>
+                  <Link href="/maxsulotlar/qurilishlar/manalitStoyka">
+                    Manalit ustun
+                  </Link>
+                </SubMenu>
+              </SubMenuItem>
 
-        <NavItem>
-          <a onClick={(e) => e.preventDefault()}>Mahsulotlar</a>
-          <DropdownMenu>
-            <SubMenuItem onClick={() => toggleSubMenu('qurilish')}>
-              <span>Qurilish mahsulotlari </span>
-              <SubMenu open={activeSubMenu === 'qurilish'}>
-                <Link href="/maxsulotlar/qurilishlar/havoza">Havoza</Link>
-                <Link href="/maxsulotlar/qurilishlar/manalitLesa">
-                  Manalit havoza
-                </Link>
-                <Link href="/maxsulotlar/qurilishlar/manalitStoyka">
-                  Manalit ustun
-                </Link>
-              </SubMenu>
-            </SubMenuItem>
+              <SubMenuItem onClick={() => toggleSubMenu('temir')}>
+                <span>Temir mahsulotlari</span>
+                <SubMenu open={activeSubMenu === 'temir'}>
+                  <Link href="/maxsulotlar/panjaralar/darvoza">Darvoza</Link>
+                  <Link href="/maxsulotlar/panjaralar/panjara">Panjara</Link>
+                  <Link href="/maxsulotlar/panjaralar/perilla">Perilla</Link>
+                  <Link href="/maxsulotlar/panjaralar/soyabon">Soyabon</Link>
+                  <Link href="/maxsulotlar/panjaralar/boshqalar">
+                    Boshqalar
+                  </Link>
+                </SubMenu>
+              </SubMenuItem>
+            </DropdownMenu>
+          </NavItem>
 
-            <SubMenuItem onClick={() => toggleSubMenu('temir')}>
-              <span>Temir mahsulotlari</span>
-              <SubMenu open={activeSubMenu === 'temir'}>
-                <Link href="/maxsulotlar/panjaralar/darvoza">Darvoza</Link>
-                <Link href="/maxsulotlar/panjaralar/panjara">Panjara</Link>
-                <Link href="/maxsulotlar/panjaralar/perilla">Perilla</Link>
-                <Link href="/maxsulotlar/panjaralar/soyabon">Soyabon</Link>
-                <Link href="/maxsulotlar/panjaralar/boshqalar">Boshqalar</Link>
-              </SubMenu>
-            </SubMenuItem>
-          </DropdownMenu>
-        </NavItem>
-
-        <NavItem>
-          <Link href="/components/galereya">Galereya</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/components/contact">Biz haqimizda</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/components/contact">Bog'lanish</Link>
-        </NavItem>
-      </NavLinks>
+          <NavItem>
+            <Link href="/components/galereya">Galereya</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/components/contact">Biz haqimizda</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/components/contact">Bog'lanish</Link>
+          </NavItem>
+        </NavLinks>
+      </MobileFix>
     </Nav>
   );
 };

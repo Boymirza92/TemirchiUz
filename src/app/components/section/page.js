@@ -20,6 +20,12 @@ const SectionWrapper = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
 `;
 
 const LogotipContainer = styled.a`
@@ -122,7 +128,18 @@ const SectionText = styled.div`
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.1rem;
     }
   }
 `;
@@ -130,8 +147,6 @@ const SectionText = styled.div`
 // === HERO SECTION ===
 
 const Section = () => {
-
-
   return (
     <SectionWrapper>
       <LogotipContainer>

@@ -125,10 +125,16 @@ const InfoText = styled.div`
 
   h2 {
     width: 80%;
-
     font-size: 1.3rem;
     color: #302e2eff;
     letter-spacing: 0.01rem;
+  }
+  @media (max-width: 768px) {
+    height: auto;
+    h2 {
+      width: 100%;
+      font-size: 1.1rem;
+    }
   }
 `;
 
@@ -161,6 +167,9 @@ const StyledImage = styled.div`
   &:hover img {
     transform: perspective(1000px) rotateY(5deg) rotateX(2deg) translateY(-10px);
   }
+  
+
+  
 `;
 
 const VideoContainer = styled.div`
@@ -200,6 +209,18 @@ const VideoContainer = styled.div`
       background: rgba(0, 0, 0, 0.8);
     }
   }
+
+  @media (max-width: 450px) {
+    height: 25rem;
+
+    video {
+      height: 20rem;
+    }
+
+    button {
+      bottom: 3rem;
+    }
+  }
 `;
 
 // === Carousel Style ===
@@ -234,7 +255,6 @@ const SliderContainer = styled.div`
     align-items: center;
     color: #f5efefff;
     background-color: rgba(0, 0, 0, 0.3);
-    /* opacity: 0.5; */
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -242,7 +262,7 @@ const SliderContainer = styled.div`
     font-weight: bold;
     top: 50%;
     transform: translateY(-50%);
-    position: absolute; /* 🔥 bu shart */
+    position: absolute; 
     z-index: 10;
   }
 
@@ -268,6 +288,36 @@ const SliderContainer = styled.div`
       border-radius: 1px;
       cursor: pointer;
     }
+  }
+
+  @media (max-width: 768px) {
+    .swiper-button-prev {
+      left: 3rem;
+      
+    }
+    .swiper-button-next {
+      right: 3rem;
+    }
+    .SlideWrapper, img{
+      width: 20rem;
+      height: 25rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .swiper-button-prev {
+      left: 1rem;
+
+    }
+    .swiper-button-next {
+      right: 1rem;
+    }
+    .SlideWrapper, img{
+      width: 15rem;
+      height: 25rem;
+    }
+
+    
   }
 `;
 
