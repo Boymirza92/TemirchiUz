@@ -25,6 +25,7 @@ const SectionWrapper = styled.div`
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    background-position: center calc(50% + 0px);
   }
 `;
 

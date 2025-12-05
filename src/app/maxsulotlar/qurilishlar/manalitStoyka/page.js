@@ -53,6 +53,18 @@ const InfoText = styled.div`
       font-size: 1.2rem;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+
+    h2 {
+      font-size: 1rem;
+
+      strong {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
 
 const GallerySection = styled.section`
@@ -64,6 +76,11 @@ const GallerySection = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 1rem 1rem;
+  }
 `;
 
 const ImageGrid = styled.div`
@@ -91,8 +108,16 @@ const ImageGrid = styled.div`
   }
 
   @media (max-width: 768px) {
+    gap: 1rem;
+    img {
+      width: 90%;
+      height: 30rem;
+    }
+  }
+  @media (max-width: 400px) {
     img {
       width: 100%;
+      height: 20rem;
     }
   }
 `;
@@ -151,16 +176,12 @@ const App = () => {
             ishlashni ta'minlaydi.{' '}
             <strong>
               <br />
-              <br />
-              - Asosiy vazifasi: monolit betonni ko'tarish va mustahkamlash.{' '}
-              <br />
-              - Afzalliklari:
-              kuchli, bardoshli, qayta ishlatish mumkin, oson o'rnatiladi va
-              yechiladi.
-              <br />
-               - Qo'llanish sohasi: 
-              turar-joy va sanoat binolari, ko'priklar hamda boshqa yirik
-              inshootlar qurilishida.{' '}
+              <br />- Asosiy vazifasi: monolit betonni ko'tarish va
+              mustahkamlash. <br />
+              - Afzalliklari: kuchli, bardoshli, qayta ishlatish mumkin, oson
+              o'rnatiladi va yechiladi.
+              <br />- Qo'llanish sohasi: turar-joy va sanoat binolari,
+              ko'priklar hamda boshqa yirik inshootlar qurilishida.{' '}
             </strong>
           </h2>
         </InfoText>
@@ -226,13 +247,13 @@ const App = () => {
             onClick={() => openImage('/qurilish/manalitUstun/stoyka12.jpg')}
           />
         </ImageGrid>
-         <InfoText>
+        <InfoText>
           <h2>
-           Bizning ishlab chiqarayotgan monolit stoykalarimiz yuqori sifatli
-  materiallardan tayyorlangan bo'lib, ishonchliligi va qulayligi
-  bilan ajralib turadi. Ularni sotib olish yoki ijaraga olish
-  imkoniyati mavjud. Qo'shimcha ma'lumot va buyurtmalar uchun biz
-  bilan bog'laning.
+            Bizning ishlab chiqarayotgan monolit stoykalarimiz yuqori sifatli
+            materiallardan tayyorlangan bo'lib, ishonchliligi va qulayligi bilan
+            ajralib turadi. Ularni sotib olish yoki ijaraga olish imkoniyati
+            mavjud. Qo'shimcha ma'lumot va buyurtmalar uchun biz bilan
+            bog'laning.
           </h2>
         </InfoText>
         {selectedImage && (

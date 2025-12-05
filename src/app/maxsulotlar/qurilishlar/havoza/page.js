@@ -19,6 +19,11 @@ const SectionWrapper = styled.div`
   position: relative;
   padding: 3rem;
   box-sizing: border-box;
+
+  @media (max-width: 400px) {
+    background-position: -6.3rem center;
+    max-height: 40rem;
+  }
 `;
 
 const SectionHero = styled.div`
@@ -28,115 +33,6 @@ const SectionHero = styled.div`
   flex-direction: column;
   width: 100%;
   height: 50rem;
-`;
-
-// Logatip styled //
-const LogotipContainer = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 12rem;
-  height: 12rem;
-
-  @media (max-width: 768px) {
-    width: 7rem;
-    height: 7rem;
-  }
-`;
-
-const Logotip = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  gap: 2rem;
-  transform: rotate(45deg);
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-  }
-`;
-
-const Left = styled.div`
-  width: 3rem;
-  height: 8rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 5rem;
-  }
-`;
-
-const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 3rem;
-  height: 8rem;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 5rem;
-    gap: 1rem;
-  }
-`;
-const Top = styled.div`
-  width: 3rem;
-  height: 3rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-const Bottom = styled.div`
-  width: 3rem;
-  height: 3rem;
-  background-color: #1f1f69ff;
-
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-
-const SectionText = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  h1 {
-    font-size: 8rem;
-    color: #1f1f69ff;
-    font-family: lato, sans-serif;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(254, 249, 249, 0.5);
-  }
-
-  p {
-    font-size: 2rem;
-    color: rgba(234, 228, 227, 1);
-    font-family: lato, sans-serif;
-    letter-spacing: 2px;
-    backdrop-filter: blur(0.5px);
-    font-weight: bold;
-    text-shadow: 2px 2px 10px #110e0eff;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(10, 10, 10, 10);
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 5rem;
-    }
-  }
 `;
 
 const InfoText = styled.div`
@@ -155,6 +51,16 @@ const InfoText = styled.div`
     font-size: 1.3rem;
     color: #302e2eff;
     letter-spacing: 0.01rem;
+  }
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+
+    h2 {
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 400px) {
+    margin-top: -3rem;
   }
 `;
 
@@ -194,8 +100,16 @@ const ImageGrid = styled.div`
   }
 
   @media (max-width: 768px) {
+    gap: 0.5rem;
+    img {
+      width: 90%;
+      height: 30rem;
+    }
+  }
+  @media (max-width: 400px) {
     img {
       width: 100%;
+      height: 20rem;
     }
   }
 `;

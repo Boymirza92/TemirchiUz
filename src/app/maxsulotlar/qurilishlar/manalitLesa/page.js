@@ -19,6 +19,11 @@ const SectionWrapper = styled.div`
   position: relative;
   padding: 3rem;
   box-sizing: border-box;
+  
+   @media (max-width: 400px) {
+    display: none;
+    }
+  
 `;
 
 const SectionHero = styled.div`
@@ -47,6 +52,14 @@ const InfoText = styled.div`
     color: #302e2eff;
     letter-spacing: 0.01rem;
   }
+
+  @media (max-width: 768px) {
+    margin-top: -0.5rem;
+    padding: 1rem 2rem;
+    h2 {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 const GallerySection = styled.section`
@@ -58,6 +71,10 @@ const GallerySection = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const ImageGrid = styled.div`
@@ -85,8 +102,17 @@ const ImageGrid = styled.div`
   }
 
   @media (max-width: 768px) {
+    gap: 1rem;
+    img {
+      width: 90%;
+      height: 30rem;
+    }
+  }
+
+  @media (max-width: 400px) {
     img {
       width: 100%;
+      height: 20rem;
     }
   }
 `;
